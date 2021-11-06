@@ -1,3 +1,4 @@
+#6
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -5,7 +6,7 @@ metadata:
   namespace: storage-nfs
 subjects:
   - kind: ServiceAccount
-    name: nfs-clinet-provisioner
+    name: nfs-client-provisioner
     namespace: storage-nfs
 roleRef:
   kind: Role
