@@ -18,8 +18,10 @@ spec:
     spec:
       serviceAccountName: nfs-client-provisioner
       containers:
-      - name: nfs-client-provisioner
-        image: quay.io/external_storage/nfs-client-provisioner:latest
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
         volumeMounts:
         - name: nfs-client-root
           mountPath: /persistentvolumes
