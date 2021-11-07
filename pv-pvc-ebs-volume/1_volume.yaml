@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-test
+spec:
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    fsType: xfs
+    volumeID: aws://ap-south-1a/vol-
+  capacity:
+    storage: 30Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: gc2-retain
+  volumeMode: FilesSystem
