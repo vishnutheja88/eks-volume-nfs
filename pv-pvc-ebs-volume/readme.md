@@ -66,3 +66,18 @@ managedNodeGroups:
 secretsEncryption:
   keyARN: ${MASTER_ARN}
   #keyARN: arn:aws:kms:us-east-2:268888248929:key/9c02c852-fba2-4c76-9a89-f4b9e0d00960
+
+******************************************************************************************
+$kubectl config view
+$kubectl config get-contexts
+$kubectl config current-context
+
+>> create dashboard
+$export DASHBOARD_VERSION="v2.0.0"
+$kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${DASHBOARD_VERSION}/aio/deploy/recommended.yaml
+$kubectl proxy --port=8080 --address=0.0.0.0 --disable-filter=true &
+>> append the proxy
+browser: ........//api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
+>>$aws eks get-token --cluster-name eksworkshop-eksctl | jq -r '.status.token'
+>> sign into the cluster
